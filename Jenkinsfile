@@ -22,9 +22,8 @@ node {
     stage('Deploy'){
       if(env.BRANCH_NAME == 'master'){
         sh 'docker build -t puru-react-app --no-cache .'
-        sh 'docker tag puru-react-app 7404298959/reacthub'
-        sh 'docker push 7404298959/reacthub:puru-react-app'
-        sh 'docker rmi -f puru-react-app 7404298959/reacthub'
+        sh 'docker tag puru-react-app 7404298959/reacthub:v1.0'
+        sh 'docker push 7404298959/reacthub:v1.0'
       }
     }
   }
