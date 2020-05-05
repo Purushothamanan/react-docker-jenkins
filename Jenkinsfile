@@ -1,4 +1,5 @@
 node {
+  label 'centos'
   try {
     stage('Checkout') {
       checkout scm
