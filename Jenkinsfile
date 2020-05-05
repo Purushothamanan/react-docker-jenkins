@@ -20,7 +20,9 @@ node {
       sh 'docker rmi react-test'
     } */
     stage('Deploy'){
+      withCredentials([usernameColonPassword(credentialsId: '7404298959', variable: 'USERPASS')])
       if(env.BRANCH_NAME == 'master'){
+        sh 'docker login "$USERPASS"'
         sh 'docker build -t puru-react-app --no-cache .'
         sh 'docker tag puru-react-app 7404298959/reacthub:v1.0'
         sh 'docker push 7404298959/reacthub:v1.0'
