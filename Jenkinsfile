@@ -21,10 +21,10 @@ node {
     } */
     stage('Deploy'){
       if(env.BRANCH_NAME == 'master'){
-        sh 'docker build -t react-app --no-cache .'
-        sh 'docker tag react-app localhost:5000/react-app'
-        sh 'docker push localhost:5000/react-app'
-        sh 'docker rmi -f react-app localhost:5000/react-app'
+        sh 'docker build -t puru-react-app --no-cache .'
+        sh 'docker tag puru-react-app 7404298959/reacthub'
+        sh 'docker push 7404298959/reacthub:puru-react-app'
+        sh 'docker rmi -f puru-react-app 7404298959/reacthub'
       }
     }
   }
